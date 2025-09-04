@@ -57,12 +57,10 @@ Thumbs.db
 ray_results/
 /tmp/
 *.log
-ray/
-old/
+./ray/*
+./old/*
 
 # Results and checkpoints
-results/
-checkpoints/
 *.json
 *.pkl
 *.h5
