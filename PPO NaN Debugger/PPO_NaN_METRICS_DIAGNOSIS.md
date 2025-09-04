@@ -1,10 +1,4 @@
-# PPO NaN Metrics Issue - Diagnosis and Solutions
-
-## Root Cause Identified
-
-**Issue**: The new RLlib API (2.49.0) changed how episode metrics are stored and accessed. Episode metrics are no longer directly available in the top-level training result dictionary.
-
-### What We Found:
+# PPO NaN Metrics Issue - Notes
 
 1. **Old API Expected Location**: `result['episode_reward_mean']` → Returns `None`
 2. **New API Actual Location**: `result['env_runners']['episode_return_mean']` → Contains actual values
@@ -21,7 +15,7 @@
    ```
 
 ###  Update Metric Access 
-Update your training code to access metrics from the new location:
+Update training code to access metrics from the new location:
 
 ```python
 def get_episode_metrics(result):
